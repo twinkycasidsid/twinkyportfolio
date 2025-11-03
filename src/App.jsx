@@ -1,5 +1,7 @@
-import { Home } from "lucide-react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { Home } from "./pages/Home";
+import { NotFound } from "./pages/NotFound";
 
 function App() {
   const [count, setCount] = useState(0);
