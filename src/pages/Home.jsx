@@ -4,127 +4,142 @@ import { Github, Linkedin, Mail, Sun, Moon } from "lucide-react";
 export const Home = () => {
   const [darkMode, setDarkMode] = useState(false);
 
+  const toggleDark = () => {
+    setDarkMode(!darkMode);
+    document.documentElement.classList.toggle("dark");
+  };
+
   return (
     <div
-      className={`${
-        darkMode ? "bg-gray-900 text-white" : "bg-white text-gray-800"
-      } min-h-screen transition-colors duration-300`}
+      className={`min-h-screen transition-colors duration-300 
+      ${darkMode ? "bg-[#1A2A4F] text-[#FFF2EF]" : "bg-[#FFF2EF] text-[#1A2A4F]"}`}
     >
       {/* Navbar */}
-      <nav className="flex justify-between items-center px-8 py-4 shadow-sm fixed top-0 left-0 w-full bg-opacity-80 backdrop-blur-md z-50">
-        <h1 className="text-2xl font-bold text-green-600">Twinky Casidsid</h1>
+      <nav
+        className={`flex justify-between items-center px-8 py-4 shadow-sm fixed top-0 left-0 w-full backdrop-blur-md z-50
+        ${darkMode ? "bg-[#1A2A4F]/80" : "bg-[#FFF2EF]/80"}`}
+      >
+        <h1 className="text-2xl font-bold text-[#F7A5A5]">Twinky Casidsid</h1>
+
         <ul className="hidden md:flex space-x-8 font-medium">
           {["Home", "About", "Projects", "Contact"].map((item) => (
             <li key={item}>
               <a
                 href={`#${item.toLowerCase()}`}
-                className="hover:text-green-600"
+                className="hover:text-[#F7A5A5] transition"
               >
                 {item}
               </a>
             </li>
           ))}
         </ul>
+
         <button
-          onClick={() => setDarkMode(!darkMode)}
-          className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition"
+          onClick={toggleDark}
+          className="p-2 rounded-full hover:bg-[#FFDBB6] transition"
         >
           {darkMode ? <Sun size={20} /> : <Moon size={20} />}
         </button>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero */}
       <section
         id="home"
         className="flex flex-col justify-center items-center text-center min-h-screen px-6 pt-20"
       >
         <h2 className="text-4xl md:text-6xl font-bold mb-4">
-          Hi, I’m <span className="text-green-600">Twinky</span>
+          Hi, I’m <span className="text-[#F7A5A5]">Twinky</span>
         </h2>
+
         <p className="text-lg md:text-xl max-w-2xl mb-6">
-          A passionate developer from Cebu City. I build clean, efficient, and
-          human-centered software—from IoT and AI-powered apps to full-stack
-          systems.
+          A developer from Cebu City. I create clean, efficient, and
+          human-centered systems using IoT, AI, and full-stack development.
         </p>
+
         <a
           href="#projects"
-          className="bg-green-600 text-white px-6 py-3 rounded-md font-semibold hover:scale-105 transition-transform"
+          className="bg-[#F7A5A5] text-[#1A2A4F] px-6 py-3 rounded-md font-semibold 
+          hover:scale-105 transition-transform"
         >
           View My Work
         </a>
       </section>
 
-      {/* About Section */}
+      {/* About */}
       <section
         id="about"
-        className="py-24 px-6 text-center bg-gray-50 dark:bg-gray-800"
+        className={`py-24 px-6 text-center 
+        ${darkMode ? "bg-[#1A2A4F]" : "bg-[#FFDBB6]"} `}
       >
-        <h2 className="text-3xl font-bold mb-6 text-green-600">About Me</h2>
+        <h2 className="text-3xl font-bold mb-6 text-[#F7A5A5]">About Me</h2>
+
         <p className="max-w-3xl mx-auto text-lg leading-relaxed">
           I’m a BSIT student at the University of Cebu Lapu-Lapu and Mandaue.
-          Skilled in C#, Java, React, Python, and IoT development. I enjoy
-          transforming real-world problems into reliable software solutions with
-          a focus on usability and performance.
+          Skilled in C#, Java, React, Python, and IoT. I turn real problems into
+          usable and reliable software.
         </p>
       </section>
 
-      {/* Projects Section */}
+      {/* Projects */}
       <section id="projects" className="py-24 px-6 text-center">
-        <h2 className="text-3xl font-bold mb-10 text-green-600">Projects</h2>
+        <h2 className="text-3xl font-bold mb-10 text-[#F7A5A5]">Projects</h2>
+
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {[
             {
               title: "WisEnergy",
-              desc: "IoT + AI energy monitoring system for households in Cebu.",
+              desc: "IoT + AI monitoring system for households in Cebu.",
             },
-
             {
               title: "ScholarTrack",
-              desc: "ScholarTrack is a C# desktop application designed to efficiently manage and track scholars’ library attendance. It provides an automated way to record time-ins and time-outs, replacing the old paper-based system that was prone to loss and dishonesty.",
+              desc: "A C# library attendance tracking app for scholars.",
             },
           ].map((p, i) => (
             <div
               key={i}
-              className="bg-white dark:bg-gray-900 shadow-md rounded-xl p-6 hover:shadow-xl transition-all"
+              className={`rounded-xl p-6 shadow-md hover:shadow-xl transition-all
+              ${darkMode ? "bg-[#1A2A4F]" : "bg-[#FFDBB6]"} `}
             >
-              <h3 className="text-xl font-semibold text-green-600 mb-2">
+              <h3 className="text-xl font-semibold text-[#F7A5A5] mb-2">
                 {p.title}
               </h3>
-              <p className="text-gray-700 dark:text-gray-300">{p.desc}</p>
+              <p>{p.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Contact Section */}
+      {/* Contact */}
       <section
         id="contact"
-        className="py-24 px-6 text-center bg-gray-50 dark:bg-gray-800"
+        className={`py-24 px-6 text-center 
+        ${darkMode ? "bg-[#1A2A4F]" : "bg-[#FFDBB6]"} `}
       >
-        <h2 className="text-3xl font-bold mb-6 text-green-600">Get in Touch</h2>
+        <h2 className="text-3xl font-bold mb-6 text-[#F7A5A5]">Get in Touch</h2>
+
         <p className="text-lg mb-6">
-          Let’s collaborate or discuss your next project!
+          Let’s collaborate or talk about your next project.
         </p>
+
         <div className="flex justify-center space-x-6">
-          <a
-            href="mailto:twinkycasidsid@example.com"
-            className="hover:text-green-600"
-          >
+          <a className="hover:text-[#F7A5A5]" href="mailto:twinkycasidsid@example.com">
             <Mail size={24} />
           </a>
+
           <a
             href="https://github.com/twinkycasidsid"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-green-600"
+            className="hover:text-[#F7A5A5]"
           >
             <Github size={24} />
           </a>
+
           <a
             href="https://linkedin.com/in/twinkycasidsid"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-green-600"
+            className="hover:text-[#F7A5A5]"
           >
             <Linkedin size={24} />
           </a>
@@ -132,7 +147,7 @@ export const Home = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-6 text-center bg-green-600 text-white">
+      <footer className="py-6 text-center bg-[#F7A5A5] text-[#1A2A4F]">
         © {new Date().getFullYear()} Twinky Casidsid — All Rights Reserved.
       </footer>
     </div>

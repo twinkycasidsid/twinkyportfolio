@@ -1,46 +1,70 @@
 @import "tailwindcss";
 
 @theme {
---color-border: hsl(var(--border))
---color-background: hsl(var(--background))
---color-foreground: hsl(var(--foreground))
+  /* Light Mode */
+  --background: 230 49% 21%;          /* #1A2A4F */
+  --foreground: 0 0% 98%;
 
---color-primary: hsl(var(--primary))
---color-primary-foreground: hsl(var(--primary-foreground))
+  --primary: 0 68% 82%;               /* #F7A5A5 */
+  --primary-foreground: 240 5% 20%;
 
---color-card: hsl(var(--card))
---color-card-foreground: hsl(var(--card-foreground))
+  --card: 27 100% 86%;                /* #FFDBB6 */
+  --card-foreground: 240 5% 15%;
 
---animate-float: float 6s ease-in-out infinite;
---animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
---animate-fade-in: fade-in 0.7s ease-out forwards;
---animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
---animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
---animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards; 
---animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards; 
---animate-meteor: meteor 5s linear infinite;
+  --secondary: 10 100% 97%;           /* #FFF2EF */
+  --secondary-foreground: 240 5% 20%;
 
-@keyframes float {
-  0%, 100% { 
-    transform: translateY(0); 
+  --border: 0 0% 100% / 20%;
+
+  /* Animation tokens */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.7s ease-out forwards;
+  --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
+  --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
+  --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
+  --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
+  --animate-meteor: meteor 5s linear infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) }
+    50% { transform: translateY(-10px) }
   }
-  50% { 
-    transform: translateY(-10px); }}
+
   @keyframes pulse-subtle {
-  0%, 100% { 
-    opacity: 1; }
-  50% { 
-    opacity: 0.8; }}
+    0%, 100% { opacity: 1 }
+    50% { opacity: 0.8 }
+  }
+
   @keyframes fade-in {
-  0% { 
-    opacity: 0; }
-  100% { 
-    opacity: 1; }}
+    0% { opacity: 0 }
+    100% { opacity: 1 }
+  }
+
   @keyframes meteor {
-  0% { 
-    transform: translateX(-100%) 
-    translateY(0) rotate(45deg); opacity: 1; }
-  100% { 
-    transform: translateX(100%) 
-    translateY(200%) rotate(45deg); opacity: 0; }}
+    0% {
+      transform: translateX(-100%) translateY(0) rotate(45deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100%) translateY(200%) rotate(45deg);
+      opacity: 0;
+    }
+  }
+}
+
+.dark {
+  --background: 230 35% 10%;
+  --foreground: 0 0% 98%;
+
+  --primary: 0 68% 72%;
+  --primary-foreground: 240 5% 10%;
+
+  --card: 230 30% 15%;
+  --card-foreground: 0 0% 98%;
+
+  --secondary: 10 40% 20%;
+  --secondary-foreground: 0 0% 95%;
+
+  --border: 0 0% 100% / 15%;
 }
