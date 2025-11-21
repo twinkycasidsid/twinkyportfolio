@@ -68,3 +68,75 @@
 
   --border: 0 0% 100% / 15%;
 }
+
+.gradient-bg {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #F7A5A5, #FFDBB6, #FFF2EF);
+  z-index: -1;       /* sits behind everything */
+  pointer-events: none;
+}
+
+.interactive-gradient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    #f7a5a5,
+    #ffdbb6,
+    #fff2ef
+  );
+  transition: background-position 0.1s ease-out;
+}
+.dark .interactive-gradient {
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    #0d1b3e,
+    #1a2a4f,
+    #0d1b3e
+  );
+}
+.fluid-gradient {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  overflow: hidden;
+  pointer-events: none;
+  filter: blur(150px) saturate(180%);
+}
+
+.ball {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  transition: background 0.3s ease;
+}
+
+/* LIGHT MODE COLORS */
+.ball-light-1 {
+  background: radial-gradient(circle, #F7A5A5, #FFDBB6);
+}
+.ball-light-2 {
+  background: radial-gradient(circle, #FFF2EF, #F7A5A5);
+}
+.ball-light-3 {
+  background: radial-gradient(circle, #FFDBB6, #FFF2EF);
+}
+
+/* DARK MODE COLORS */
+.ball-dark-1 {
+  background: radial-gradient(circle, #0d1b3e, #1A2A4F);
+}
+.ball-dark-2 {
+  background: radial-gradient(circle, #1A2A4F, #0d1b3e);
+}
+.ball-dark-3 {
+  background: radial-gradient(circle, #0d1b3e, #1A2A4F);
+}
+
+
+

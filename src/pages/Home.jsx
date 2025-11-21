@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Github, Linkedin, Mail, Sun, Moon } from "lucide-react";
+import FluidBackground from "../components/FluidBackground";
 
 export const Home = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -9,11 +10,32 @@ export const Home = () => {
     document.documentElement.classList.toggle("dark");
   };
 
+  const [blobs, setBlobs] = useState([
+    { x: 200, y: 200 },
+    { x: 800, y: 400 },
+  ]);
+
+  useEffect(() => {
+    const move = (e) => {
+      setBlobs((prev) =>
+        prev.map((b, i) => ({
+          x: b.x + (e.clientX - b.x) * (0.02 + i * 0.01),
+          y: b.y + (e.clientY - b.y) * (0.02 + i * 0.01),
+        }))
+      );
+    };
+
+    window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("mousemove", move);
+  }, []);
+
   return (
     <div
       className={`min-h-screen transition-colors duration-300 
-      ${darkMode ? "bg-[#1A2A4F] text-[#FFF2EF]" : "bg-[#FFF2EF] text-[#1A2A4F]"}`}
+      ${darkMode ? "text-[#FFF2EF]" : "text-[#1A2A4F]"}`}
     >
+      <FluidBackground dark={darkMode} />
+
       {/* Navbar */}
       <nav
         className={`flex justify-between items-center px-8 py-4 shadow-sm fixed top-0 left-0 w-full backdrop-blur-md z-50
@@ -69,7 +91,7 @@ export const Home = () => {
       <section
         id="about"
         className={`py-24 px-6 text-center 
-        ${darkMode ? "bg-[#1A2A4F]" : "bg-[#FFDBB6]"} `}
+        ${darkMode ? "bg-[#1A2A4F]" : "bg-[#FFDBB6]"}`}
       >
         <h2 className="text-3xl font-bold mb-6 text-[#F7A5A5]">About Me</h2>
 
@@ -98,7 +120,7 @@ export const Home = () => {
             <div
               key={i}
               className={`rounded-xl p-6 shadow-md hover:shadow-xl transition-all
-              ${darkMode ? "bg-[#1A2A4F]" : "bg-[#FFDBB6]"} `}
+              ${darkMode ? "bg-[#1A2A4F]" : "bg-[#FFDBB6]"}`}
             >
               <h3 className="text-xl font-semibold text-[#F7A5A5] mb-2">
                 {p.title}
@@ -113,7 +135,7 @@ export const Home = () => {
       <section
         id="contact"
         className={`py-24 px-6 text-center 
-        ${darkMode ? "bg-[#1A2A4F]" : "bg-[#FFDBB6]"} `}
+        ${darkMode ? "bg-[#1A2A4F]" : "bg-[#FFDBB6]"}`}
       >
         <h2 className="text-3xl font-bold mb-6 text-[#F7A5A5]">Get in Touch</h2>
 
@@ -122,7 +144,10 @@ export const Home = () => {
         </p>
 
         <div className="flex justify-center space-x-6">
-          <a className="hover:text-[#F7A5A5]" href="mailto:twinkycasidsid@example.com">
+          <a
+            className="hover:text-[#F7A5A5]"
+            href="mailto:twinkycasidsid@example.com"
+          >
             <Mail size={24} />
           </a>
 
