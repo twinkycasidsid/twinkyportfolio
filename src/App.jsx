@@ -1,21 +1,25 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, { useState } from "react";
-import { Home } from "./pages/Home";
-import { NotFound } from "./pages/NotFound";
+import SimpleGradientBackground from "./components/SimpleGradientBackground";
+import GlitterBackground from "./components/GlitterBackground";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+    <div className="relative min-h-screen font-[PT Serif] text-[#725a72]">
+      {/* Backgrounds apply to all pages */}
+      <SimpleGradientBackground />
+      <GlitterBackground />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+      </Routes>
+    </div>
   );
 }
 
-export default App;
+export default App; // <-- THIS IS REQUIRED

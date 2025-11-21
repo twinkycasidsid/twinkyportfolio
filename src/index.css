@@ -116,27 +116,61 @@
   transition: background 0.3s ease;
 }
 
-/* LIGHT MODE COLORS */
 .ball-light-1 {
-  background: radial-gradient(circle, #F7A5A5, #FFDBB6);
-}
-.ball-light-2 {
-  background: radial-gradient(circle, #FFF2EF, #F7A5A5);
-}
-.ball-light-3 {
-  background: radial-gradient(circle, #FFDBB6, #FFF2EF);
+  background: radial-gradient(circle, #6953a6, #725a72);
 }
 
-/* DARK MODE COLORS */
+.ball-light-2 {
+  background: radial-gradient(circle, #725a72, #898ac4);
+}
+
+.ball-light-3 {
+  background: radial-gradient(circle, #898ac4, #6953a6);
+}
+
+/* darker tones for contrast */
 .ball-dark-1 {
-  background: radial-gradient(circle, #0d1b3e, #1A2A4F);
+  background: radial-gradient(circle, #4d3d7f, #6953a6);
 }
+
 .ball-dark-2 {
-  background: radial-gradient(circle, #1A2A4F, #0d1b3e);
+  background: radial-gradient(circle, #5b4a6a, #725a72);
 }
+
 .ball-dark-3 {
-  background: radial-gradient(circle, #0d1b3e, #1A2A4F);
+  background: radial-gradient(circle, #6767a8, #898ac4);
 }
+
+.simple-gradient-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  background: linear-gradient(
+    120deg,
+    #ffffff,
+    #cbb7f0,
+    #dcc7ff,
+    #c2b3ec
+  );
+  background-size: 300% 300%;
+  animation: moveGradient 14s ease infinite;
+  pointer-events: none;
+}
+
+/* Soft smooth looping motion */
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
 
 
 
