@@ -15,7 +15,7 @@ const Home = () => {
 
       {/* PROFILE */}
       <div
-        className="mt-10 w-56 h-56 rounded-full overflow-hidden border-[6px] border-[#ffffff] relative z-10"
+        className="mt-40 w-56 h-56 rounded-full overflow-hidden border-[6px] border-[#ffffff] relative z-10"
         style={{ clipPath: "ellipse(50% 55% at 50% 50%)" }}
       >
         <img src="/twinky.png" className="w-full h-full object-cover" />

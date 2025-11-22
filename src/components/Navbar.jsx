@@ -9,8 +9,8 @@ export default function Navbar() {
         bg-[#6953a6]
         text-white font-semibold
         border border-white/20
-        shadow-[0_10px_25px_rgba(0,0,0,0.35)]
-        hover:shadow-[0_14px_32px_rgba(0,0,0,0.45)]
+        shadow-[0_3px_5px_rgba(0,0,0,0.15)]
+        hover:shadow-[0_3px_20px_rgba(0,0,0,0.35)]
         transition-all duration-300 backdrop-blur-xl"
       >
         <a href="/projects" className="hover:opacity-80">
