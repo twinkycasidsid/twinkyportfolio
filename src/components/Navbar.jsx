@@ -2,7 +2,7 @@ import winxLogo from "/winx.png";
 
 export default function Navbar() {
   return (
-    <div className="fixed top-5 left-0 right-0 z-50 flex justify-center">
+    <div className="h-15 fixed top-5 left-0 right-0 z-50 flex justify-center">
       <nav
         className="flex items-center justify-center space-x-10
         px-24 py-4 rounded-full
