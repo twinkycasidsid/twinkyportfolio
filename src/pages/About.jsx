@@ -51,7 +51,7 @@ export default function About() {
     },
     {
       img: "/pic3.jpg",
-      title: "IBPAP Hackathon Challenge Participant",
+      title: "IBPAP Hackathon Challenge 2025 Participant",
       desc: "Participated in the IBPAP Hackathon Challenge 2025, collaborating with peers to develop innovative tech solutions under time constraints.",
     },
   ];
