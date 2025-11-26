@@ -28,7 +28,7 @@ const Home = () => {
         Twinky Casidsid
       </h1>
 
-      <p className="text-[#6953a6] -mt-4 text-lg z-10 font-bold">
+      <p className="text-[#6953a6] -mt-5 text-lg z-10 font-bold">
         Aspiring Software Developer
       </p>
 
