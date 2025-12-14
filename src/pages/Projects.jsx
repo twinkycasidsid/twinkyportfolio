@@ -47,7 +47,7 @@ export default function Projects() {
 
         <ProjectCard
           image="/scholartrack.jpg"
-          label="Solo Project"
+          label="Personal Project"
           title="ScholarTrack"
           description="ScholarTrack is a C# desktop application that automates library attendance for scholars. It replaces unreliable paper logs with accurate time-in/time-out tracking, real-time monitoring, and clear reporting for staff and administrators."
           role="C# Developer, UI Designer"
@@ -67,6 +67,23 @@ export default function Projects() {
             "Educational Tech",
             "Offline-First",
             "AI-Enhanced Learning",
+          ]}
+          link=""
+        />
+
+        <ProjectCard
+          image="/taskcove-logo.png"
+          label="Personal Project"
+          title="TaskCove"
+          description="TaskCove is a productivity-focused mobile application designed to help users manage tasks, focus sessions, and daily goals in one place. It integrates a Pomodoro-based workflow, clean UI, and Supabase authentication, with plans for AI-assisted task insights and reminders."
+          role="Mobile Developer, UI/UX Designer"
+          tags={[
+            "Productivity",
+            "Mobile App",
+            "React Native",
+            "Expo",
+            "Supabase",
+            "Pomodoro Technique",
           ]}
           link=""
         />
